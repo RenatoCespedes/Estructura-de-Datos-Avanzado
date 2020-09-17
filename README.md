@@ -1,14 +1,14 @@
 # ESTRUCTURAS DE DATOS AVANZADOS
 ## INTEGRANTES
 * CESPEDES FUENTES , RENATO GONZALO
-  [] Selection Sort
+  - [ ] Selection Sort
 * CHAYÑA BATALLANES , JOSNICK
-  [] Bubble Sort
-  [] Insert Sort
+  - [ ] Bubble Sort
+  - [ ] Insert Sort
 * MAMANI SUCACAHUA , RODRIGO ALEXANDER
-  [] Heap Sort
+  - [ ] Heap Sort
 * OXA CACYA , SHIRLEY MICHELLE
-  [] Counting Sort
+  - [ ] Counting Sort
 * PEREZ RODRIGUEZ , ANGELO ALDO
-  [] Quick Sort
-  [] Merge Sort
+  - [ ] Quick Sort
+  - [ ] Merge Sort
