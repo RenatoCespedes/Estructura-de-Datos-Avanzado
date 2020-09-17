@@ -1,48 +1,74 @@
-#include <bits/stdc++.h> 
-using namespace std; 
+#include <iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
 
+void Aleatorio(int& n,int* arreglo){
+    srand(time(nullptr));
+    int num;
+    for (int i =0;i<n;i++){
+        num = 1+rand()%n;
+        arreglo[i] = num;
+    }
+    cout<<endl;
+    
+}
 
-void swap(int* a, int* b) 
-{ 
-	int t = *a; 
-	*a = *b; 
-	*b = t; 
-} 
+void print(int& n, int* arreglo){
+    for(int i=0;i<n;i++){
+        cout<<arreglo[i]<<" ";
+    }
+    cout<<endl;
+}
 
+void swap(int* a, int* b)  
+    {  
+        int t = *a;  
+        *a = *b;  
+        *b = t;  
+    }
+int dividir( int arr[],int inicio, int final){
+    int pivot = arr[final];
+    int x = (inicio-1);
+    for (int i = inicio; i <= final-1; i++)
+    {
+        if (arr[i] < pivot)
+        {
+            x++;
+            swap(&arr[x],&arr[i]);
+        }
+        
+    }
+    swap(&arr[x+1],&arr[final]);
+    
+    return (x+1);
+    
+}
 
-int partition (int arr[], int inic, int high) 
-{ 
-	int pivot = arr[high]; 
-	int i = (inic - 1);  
+void quickSort(int arr[],int inicio, int final){
+    if (inicio<final)
+    {
+        int part = dividir(arr,inicio,final);
 
-	for (int j = inic; j <= high - 1; j++) 
-	{ 
-		
-		if (arr[j] < pivot) 
-		{ 
-			i++;  
-			swap(&arr[i], &arr[j]); 
-		} 
-	} 
-	swap(&arr[i + 1], &arr[high]); 
-	return (i + 1); 
-} 
+        quickSort(arr,inicio,part-1);
+        quickSort(arr,part+1,final);
+    }
+    
+}
 
-void quickSort(int arr[], int inicio, int fin) 
-{ 
-	if (inicio < fin) 
-	{ 
-		
-		int pi = partition(arr, inicio, fin); 
-
-		// Separately sort elements before 
-		// partition and after partition 
-		quickSort(arr, inicio, pi - 1); 
-		quickSort(arr, pi + 1, fin); 
-	} 
-} 
-
-int main()
-{
-	
+int main(){
+    int n;
+    int *arreglo = nullptr;
+    cout<<"Que tamanio de arreglo quieres"<<endl;
+    cin>>n;
+    arreglo = new int[n];
+    Aleatorio(n,arreglo);
+    cout<<"Desordenado"<<endl;
+    print(n,arreglo);
+    quickSort(arreglo,0,n-1);
+    cout<<"Ordenado usando QuickSort"<<endl;
+    
+    print(n,arreglo);
+    delete[] arreglo;
+    return 0;
 }
