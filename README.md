@@ -6,9 +6,9 @@
   - [x] Bubble Sort
   - [x] Insert Sort
 * MAMANI SUCACAHUA , RODRIGO ALEXANDER
-  - [ ] Heap Sort
+  - [x] Heap Sort
 * OXA CACYA , SHIRLEY MICHELLE
-  - [ ] Selection Sort
+  - [x] Selection Sort
 * PEREZ RODRIGUEZ , ANGELO ALDO
   - [x] Quick Sort
   - [x] Merge Sort
