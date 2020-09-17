@@ -10,5 +10,5 @@
 * OXA CACYA , SHIRLEY MICHELLE
   - [ ] Selection Sort
 * PEREZ RODRIGUEZ , ANGELO ALDO
-  - [ ] Quick Sort
-  - [ ] Merge Sort
+  - [x] Quick Sort
+  - [x] Merge Sort
