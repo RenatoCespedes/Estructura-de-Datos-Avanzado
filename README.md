@@ -3,8 +3,8 @@
 * CESPEDES FUENTES , RENATO GONZALO
   - [ ] Counting sort
 * CHAYÑA BATALLANES , JOSNICK
-  - [ ] Bubble Sort
-  - [ ] Insert Sort
+  - [x] Bubble Sort
+  - [x] Insert Sort
 * MAMANI SUCACAHUA , RODRIGO ALEXANDER
   - [ ] Heap Sort
 * OXA CACYA , SHIRLEY MICHELLE
