@@ -1,7 +1,7 @@
 # ESTRUCTURAS DE DATOS AVANZADOS
 ## INTEGRANTES
 * CESPEDES FUENTES , RENATO GONZALO
-  - [ ] Counting sort
+  - [x] Counting sort
 * CHAYÑA BATALLANES , JOSNICK
   - [x] Bubble Sort
   - [x] Insert Sort
