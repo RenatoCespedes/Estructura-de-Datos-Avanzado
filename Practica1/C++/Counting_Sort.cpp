@@ -1,7 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include<stdlib.h>
-#include<time.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -68,6 +65,7 @@ int main()
 	int n=100000;
 	float t0;
 	double time1;
+	ofstream fs("time_Counting.txt");
 	srand(time(NULL));
 	for(int i=n;i<=1000000;i=i+100000){
 		int *A;
@@ -79,6 +77,7 @@ int main()
 		t0=clock()-t0;
 		time1= ((double)t0)/CLOCKS_PER_SEC;
 		cout<<"time of execution: "<< time1<<endl;
+		fs<<time1<<endl;
 	}
 
 	return 0;
