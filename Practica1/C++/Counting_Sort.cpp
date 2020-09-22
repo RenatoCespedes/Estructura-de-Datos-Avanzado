@@ -8,7 +8,17 @@ using namespace std;
 
 
 
-
+void crear(int *&A,int n)
+{
+	A=new int[n];
+}
+void llenar(int *A,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		*(A+i)= rand()%1000;
+	}
+}
 void imprimir(int *A,int n)
 {
 	for(int i=0;i<n;i++)
@@ -32,7 +42,7 @@ void countingSort(int *A,int tam)
 	int range=max - min +1;
 	int *B=new int[range];
 	
-	for(int j=0;j<tam;j++)
+	for(int j=0;j<range;j++)
 	{
 		*(B+j)=0;
 	}
@@ -55,26 +65,21 @@ void countingSort(int *A,int tam)
 
 int main()
 {
-	int n;
-	cout<<"Ingrese el size del array: ";
-	cin>>n;
-	int *A=new int[n];
-	int *B=new int[n];
+	int n=100000;
+	float t0;
+	double time1;
 	srand(time(NULL));
-	for(int i=0;i<n;i++)
-	{
-		*(A+i)= rand()%n;
-//		*(B+i)=*(A+i);
+	for(int i=n;i<=1000000;i=i+100000){
+		int *A;
+		crear(A,i);
+		llenar(A,i);
+		t0=clock();
+		cout<<"Counting"<<endl;
+		countingSort(A,i);
+		t0=clock()-t0;
+		time1= ((double)t0)/CLOCKS_PER_SEC;
+		cout<<"time of execution: "<< time1<<endl;
 	}
-	float t0=clock();
-	cout<<"Array"<<endl;
-	imprimir(A,n);
-
-	
-	cout<<"Counting"<<endl;
-	countingSort(A,n);
-	imprimir(A,n);
-	
 
 	return 0;
 }
