@@ -10,8 +10,8 @@ def InsertionSort(arr):
             arr[j+1] = arr[j]
             j -= 1
         arr[j+1] = key
-
-arr = [9,5,1]
+print("Insert Loaded")
+"""arr = [9,5,1]
 printi(arr)
 InsertionSort(arr)
-printi(arr)
+printi(arr)"""
