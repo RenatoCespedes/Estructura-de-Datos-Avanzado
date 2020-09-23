@@ -25,7 +25,7 @@ def countingSort(array):
     for i in range(0, size):
         array[i] = output[i]
 
-print("")
+print("Counting Loaded")
 """data = [4, 2, 2, 8, 3, 3, 1]
 print("Array antes del cambio")
 print(data)
