@@ -1,34 +1,41 @@
-import random
-"""
-def swap(a,b):
-	t = a;
-	a = b;
-	b = t;
-	return a,b"""
-
-
-def dividir(arr,inicio,fin):
-	pivot = arr[fin]
-	x = inicio-1
-	
-	for i in range(inicio,fin):
-		if arr[i]<pivot:
-			x=x+1
-			arr[x], arr[i] = arr[i], arr[x]
-	
-	arr[x+1],arr[fin] = arr[fin], arr[x+1]
-	return (x+1)
-
-
-
-def quickSort(arr,inicio,final):
-	if inicio<final:
-		part = dividir(arr,inicio,final)
-		
-		quickSort(arr,inicio,part-1)
-		quickSort(arr,part+1,final)
-
-
+import random 
+  
+''' 
+The function which implements QuickSort. 
+arr :- array to be sorted. 
+start :- starting index of the array. 
+stop :- ending index of the array. 
+'''
+def quickSort(arr, inicio , fin): 
+    if(inicio < fin): 
+          
+        pivotdiv = divrand(arr, inicio, fin) 
+  
+        quickSort(arr , inicio , pivotdiv - 1) 
+        quickSort(arr, pivotdiv + 1, fin) 
+  
+ 
+def divrand(arr , inicio, fin): 
+  
+    randpivot = random.randrange(inicio, fin) 
+  
+    arr[inicio], arr[randpivot] = arr[randpivot], arr[inicio] 
+    return dividir(arr, inicio, fin) 
+  
+def dividir(arr,inicio,fin): 
+    pivot = inicio
+    i = inicio + 1 
+                  
+    for j in range(inicio + 1, fin + 1): 
+          
+        # if the current element is smaller or equal to pivot, 
+        # shift it to the left side of the partition. 
+        if arr[j] <= arr[pivot]: 
+            arr[i] , arr[j] = arr[j] , arr[i] 
+            i = i + 1
+    arr[pivot] , arr[i - 1] = arr[i - 1] , arr[pivot] 
+    pivot = i - 1
+    return (pivot) 
 
 n = int(input())
 print(n)
@@ -43,3 +50,4 @@ print(arr)
 quickSort(arr,0,n-1)
 print('Arreglo ordenado por Quicksort: ')
 print(arr)
+
