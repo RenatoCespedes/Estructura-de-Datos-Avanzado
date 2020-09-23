@@ -1,4 +1,4 @@
-from time import time
+#from time import time
 def selectionsort(A):
 	tam=len(A)
 	for i in range(tam):
@@ -10,10 +10,10 @@ def selectionsort(A):
 		A[i]=A[minimo]
 		A[minimo]=tempo
 
-
-A=[15,3,6,9,3,5,12,4,0,48,42]
+print("Selection Loaded")
+"""A=[15,3,6,9,3,5,12,4,0,48,42]
 start_time=time()
 selectionsort(A)
 elapsed_time=time()-start_time
 print("Tiempo: %0.10f seconds." % elapsed_time)
-print(A)
+print(A)"""
