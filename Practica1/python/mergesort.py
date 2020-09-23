@@ -1,5 +1,3 @@
-import random
-
 def mergeSort(arr): 
     if len(arr) >1: 
         m = len(arr)//2 
