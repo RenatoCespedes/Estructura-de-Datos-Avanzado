@@ -31,8 +31,8 @@ def mergeSort(arr):
             k+= 1
 
 
-
-n = int(input())
+print("Merge Loaded")
+"""n = int(input())
 print(n)
 
 arr = [0]*n
@@ -44,4 +44,4 @@ print('Arreglo sin ordenar: ')
 print(arr)
 mergeSort(arr)
 print('Arreglo ordenado por Quicksort: ')
-print(arr)
+print(arr)"""
