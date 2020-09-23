@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-import random 
-=======
-#import random
+import random
 
 def mergeSort(arr): 
     if len(arr) >1: 
@@ -11,57 +8,31 @@ def mergeSort(arr):
   
         mergeSort(L) 
         mergeSort(R) 
->>>>>>> 7530fb5cbc5d61ecedf1f37cad319140f6ca6446
   
-''' 
-The function which implements QuickSort. 
-arr :- array to be sorted. 
-start :- starting index of the array. 
-stop :- ending index of the array. 
-'''
-def quickSort(arr, inicio , fin): 
-    if(inicio < fin): 
+        i = j = k = 0
           
-        pivotdiv = divrand(arr, inicio, fin) 
-  
-        quickSort(arr , inicio , pivotdiv - 1) 
-        quickSort(arr, pivotdiv + 1, fin) 
-  
- 
-def divrand(arr , inicio, fin): 
-  
-    randpivot = random.randrange(inicio, fin) 
-  
-    arr[inicio], arr[randpivot] = arr[randpivot], arr[inicio] 
-    return dividir(arr, inicio, fin) 
-  
-def dividir(arr,inicio,fin): 
-    pivot = inicio
-    i = inicio + 1 
-                  
-    for j in range(inicio + 1, fin + 1): 
+        while i < len(L) and j < len(R): 
+            if L[i] < R[j]: 
+                arr[k] = L[i] 
+                i+= 1
+            else: 
+                arr[k] = R[j] 
+                j+= 1
+            k+= 1
           
-<<<<<<< HEAD
-        # if the current element is smaller or equal to pivot, 
-        # shift it to the left side of the partition. 
-        if arr[j] <= arr[pivot]: 
-            arr[i] , arr[j] = arr[j] , arr[i] 
-            i = i + 1
-    arr[pivot] , arr[i - 1] = arr[i - 1] , arr[pivot] 
-    pivot = i - 1
-    return (pivot) 
-
-n = int(input())
-=======
+        while i < len(L): 
+            arr[k] = L[i] 
+            i+= 1
+            k+= 1
+          
         while j < len(R): 
             arr[k] = R[j] 
             j+= 1
             k+= 1
 
-print("Merge Loaded")
 
-"""n = int(input())
->>>>>>> 7530fb5cbc5d61ecedf1f37cad319140f6ca6446
+
+n = int(input())
 print(n)
 
 arr = [0]*n
@@ -71,11 +42,6 @@ for i in range(n):
 
 print('Arreglo sin ordenar: ')
 print(arr)
-quickSort(arr,0,n-1)
+mergeSort(arr)
 print('Arreglo ordenado por Quicksort: ')
-<<<<<<< HEAD
 print(arr)
-
-=======
-print(arr)"""
->>>>>>> 7530fb5cbc5d61ecedf1f37cad319140f6ca6446
