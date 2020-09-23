@@ -82,12 +82,16 @@ public class mergesort{
         Scanner entrada = new Scanner(System.in);
         n = entrada.nextInt();
         int[] arr = new int[n];
+        long t1,t2,tt;
         generar(arr,n);
         System.out.println("Arreglo Desordenado");
         print(arr); 
         System.out.println("Arreglo Desordenado");
-        mergesort merge = new mergesort(); 
+        mergesort merge = new mergesort();
+        t1 = System.currentTimeMillis();  
         merge.msort(arr,0,n-1);
-        print(arr); 
+        t2 = System.currentTimeMillis();
+        tt = t2-t1;
+        System.out.println(tt);
     }
 }

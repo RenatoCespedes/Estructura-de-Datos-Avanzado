@@ -9,7 +9,8 @@ def BubbleSort(arr):
                 aux = arr[i]
                 arr[i] = arr[j]
                 arr[j] = aux
-arr = [9,5,1]
+print("Bubble Loaded")
+"""arr = [9,5,1]
 printi(arr)
 BubbleSort(arr)
-printi(arr)
+printi(arr)"""

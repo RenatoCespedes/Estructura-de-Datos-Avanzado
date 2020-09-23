@@ -24,9 +24,13 @@ public class selectionsort {
 		}
 	}
 	public static void main(String[] args) {
+		long time1, time2;
 		int [] A={15,2,6,9,8,5,14,3,0,56,4,1};
+		time1=System.currentTimeMillis();
 		selectionsort(A);
+		time2=System.currentTimeMillis();
 		print(A);
+		System.out.println("Tiempo "+ ( time2 - time1 ) +" ms");
 	}
 
 }

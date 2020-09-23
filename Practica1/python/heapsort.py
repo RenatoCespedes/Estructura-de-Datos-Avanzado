@@ -18,9 +18,10 @@ def heapSort(arr):
 		arr[i], arr[0] = arr[0], arr[i] 
 		max_heap(arr, i, 0) 
 
-arr = [51,13,2,45,9,89,65,12,13] 
+print("Heap Loaded")
+"""arr = [51,13,2,45,9,89,65,12,13] 
 heapSort(arr) 
 n = len(arr) 
 print ("Lista ordenada :") 
 for i in range(n): 
-	print ("%d" %arr[i]), 
+	print ("%d" %arr[i]), """
