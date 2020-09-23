@@ -1,4 +1,4 @@
-import random 
+#import random 
   
 ''' 
 The function which implements QuickSort. 
@@ -36,8 +36,8 @@ def dividir(arr,inicio,fin):
     arr[pivot] , arr[i - 1] = arr[i - 1] , arr[pivot] 
     pivot = i - 1
     return (pivot) 
-
-n = int(input())
+print("Quick Loaded")
+"""n = int(input())
 print(n)
 
 arr = [0]*n
@@ -49,5 +49,4 @@ print('Arreglo sin ordenar: ')
 print(arr)
 quickSort(arr,0,n-1)
 print('Arreglo ordenado por Quicksort: ')
-print(arr)
-
+print(arr)"""
