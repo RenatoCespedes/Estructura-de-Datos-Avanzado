@@ -1,4 +1,4 @@
-import random
+#import random
 
 def mergeSort(arr): 
     if len(arr) >1: 
@@ -32,9 +32,9 @@ def mergeSort(arr):
             j+= 1
             k+= 1
 
+print("Merge Loaded")
 
-
-n = int(input())
+"""n = int(input())
 print(n)
 
 arr = [0]*n
@@ -46,4 +46,4 @@ print('Arreglo sin ordenar: ')
 print(arr)
 mergeSort(arr)
 print('Arreglo ordenado por Quicksort: ')
-print(arr)
+print(arr)"""
