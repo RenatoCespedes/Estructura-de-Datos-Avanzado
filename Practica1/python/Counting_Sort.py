@@ -1,16 +1,17 @@
 def countingSort(array):
     size = len(array)
-    output = [0] * size
+    maxim = int(max(array))
+    output = [0] * maxim
 
     
-    count = [0] * 10
+    count = [0] * (maxim+1)
 
     
     for i in range(0, size):
         count[array[i]] += 1
 
     
-    for i in range(1, 10):
+    for i in range(1, maxim+1):
         count[i] += count[i - 1]
 
     
@@ -24,10 +25,10 @@ def countingSort(array):
     for i in range(0, size):
         array[i] = output[i]
 
-
-data = [4, 2, 2, 8, 3, 3, 1]
+print("")
+"""data = [4, 2, 2, 8, 3, 3, 1]
 print("Array antes del cambio")
 print(data)
 countingSort(data)
 print("Aplicando Counting Sort ")
-print(data)
+print(data)"""
