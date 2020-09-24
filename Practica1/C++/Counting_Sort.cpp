@@ -29,21 +29,21 @@ void countingSort(int *A,int tam)
 {
 	int max=*(A);
 	int min=*(A);
-	
+
 	for(int i=0;i<tam;i++)
 	{
 		max=(*(A+i)>max)?*(A+i):max;
 		min=(*(A+i)<min)? *(A+i):min;
 	}
-	
+
 	int range=max - min +1;
 	int *B=new int[range];
-	
+
 	for(int j=0;j<range;j++)
 	{
 		*(B+j)=0;
 	}
-	
+
 	for(int i=0;i<tam;i++){
 		B[A[i]-min]++;
 //		*(B+(*(A+i)-min))++;
@@ -56,8 +56,8 @@ void countingSort(int *A,int tam)
 			*(A+(p++))=i;
 		}
 	}
-	
-	
+
+
 }
 
 int main()
@@ -72,14 +72,10 @@ int main()
 		int *A;
 		crear(A,i);
 		read(A,i,k);
-//		llenar(A,i);
-//		imprimir(A,i);
-		cout<<"Counting"<<endl;
 		t0=clock();
 		countingSort(A,i);
 		t0=clock()-t0;
 		time1= ((double)t0)/CLOCKS_PER_SEC;
-		cout<<"time1 of execution: "<< time1<<" with "<<i<<endl;
 		k++;
 		fs<<time1<<endl;
 	}
