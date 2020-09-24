@@ -57,7 +57,7 @@ public class quicksort {
         int[] arr = new int[n];
         generar(arr,n);
         //System.out.println("Arreglo Desordenado");
-        quickal quick = new quickal(); 
+        quicksort quick = new quickal(); 
         t1=System.currentTimeMillis();
         quick.qsort(arr,0,n-1);
         t2= System.currentTimeMillis();
