@@ -1,4 +1,4 @@
-#import random 
+import random 
   
 ''' 
 The function which implements QuickSort. 
