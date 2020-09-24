@@ -1,5 +1,5 @@
 import java.util.*;
-public class quickal {
+public class quicksort {
     int dividir(int arr[],int inicio,int fin){
         int pivot = arr[fin];
         int x= inicio-1;
