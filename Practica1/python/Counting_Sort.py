@@ -1,29 +1,19 @@
-def countingSort(array):
-    size = len(array)
-    maxim = int(max(array))
-    output = [0] * maxim
+def countingSort(data):
+    counts = [0 for i in range(max(data)+1)]
 
-    
-    count = [0] * (maxim+1)
+    for el in data:
+        counts[el] += 1 
 
-    
-    for i in range(0, size):
-        count[array[i]] += 1
+    for index in range(1, len(counts)):
+        counts[index] = counts[index-1] + counts[index]
 
-    
-    for i in range(1, maxim+1):
-        count[i] += count[i - 1]
+    L = [0 for loop in range(len(data))]
+    for el in data:
+        index = counts[el] - 1
+        L[index] = el
+        counts[el] -= 1 
 
-    
-    i = size - 1
-    while i >= 0:
-        output[count[array[i]] - 1] = array[i]
-        count[array[i]] -= 1
-        i -= 1
-
-    
-    for i in range(0, size):
-        array[i] = output[i]
+	return L
 
 print("Counting Loaded")
 """data = [4, 2, 2, 8, 3, 3, 1]
