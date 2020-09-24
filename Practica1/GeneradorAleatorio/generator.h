@@ -34,7 +34,7 @@ void leer(int **A,int n,int k){
 void GenerarArray(int n,int k)
 {
 	srand(time(NULL));
-	ofstream fs("GeneratedArray"+std::to_string(k)+".txt");
+	ofstream fs("Array_"+std::to_string(n)+".txt");
 
 	for(int j=0;j<n;j++){
 		fs<<rand()%(n*100)<<" ";
@@ -44,7 +44,7 @@ void GenerarArray(int n,int k)
 }
 
 void read(int *A,int n,int k){
-	ifstream fe("../GeneradorAleatorio/GeneratedArray"+std::to_string(k)+".txt");
+	ifstream fe("../GeneradorAleatorio/Array_"+std::to_string(n)+".txt");
 	for(int i=0;i<n;i++){
 		fe>>*(A+i);
 	}
