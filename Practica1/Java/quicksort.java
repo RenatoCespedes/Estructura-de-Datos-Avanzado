@@ -1,4 +1,9 @@
 import java.util.*;
+import java.io.*;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class quicksort {
     int dividir(int arr[],int inicio,int fin){
         int pivot = arr[fin];
@@ -49,20 +54,44 @@ public class quicksort {
 
     }
 
-    public static void main(String[] args) {
-        int n = 0;
-        long t1, t2, tt;
-        Scanner entrada = new Scanner(System.in);
-        n = entrada.nextInt();
-        int[] arr = new int[n];
-        generar(arr,n);
-        //System.out.println("Arreglo Desordenado");
-        quicksort quick = new quickal(); 
-        t1=System.currentTimeMillis();
-        quick.qsort(arr,0,n-1);
-        t2= System.currentTimeMillis();
-        tt=t2-t1;
-        System.out.println("Tiempo de ejecucion: "+tt);
-        //print(arr); 
+    public static void leer(int[] a,int tam) throws FileNotFoundException,IOException{
+        int numeroEntero,indice=0;
+        File f=new File("../GeneradorAleatorio/Array_"+tam+".txt");
+        try(Scanner entrada = new Scanner(f)){
+          while (entrada.hasNextInt() && indice<tam) { 
+                numeroEntero = entrada.nextInt();
+                a[indice]=numeroEntero;
+                indice++;
+            }
+        }catch (FileNotFoundException e) {
+        }
+    }
+    public static void main(String[] args) throws FileNotFoundException,IOException{
+
+        File file=new File("TiemposJava/quicksort.txt");
+        
+        long time1, time2;
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for(int i=10000;i<=100000;i=i+10000)
+        {
+          int[] a=new int[i];
+          // System.out.println(" indice"+ ( id ));
+          leer(a,i);
+          quicksort quick = new quicksort();
+          time1=System.currentTimeMillis();
+          // time1=System.currentTimeMillis();
+          quick.qsort(a,0,a.length-1);
+          time2=System.currentTimeMillis();
+          long tiempo=time2-time1;
+          // time2=System.currentTimeMillis();
+
+          System.out.println("Tiempo "+ ( tiempo ) +" s");
+          String s=String.valueOf(tiempo);
+          
+            
+            bw.write(s+'\n');
+        }
+        bw.close();
     }
 }
