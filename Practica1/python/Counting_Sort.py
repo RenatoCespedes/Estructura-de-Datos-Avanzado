@@ -13,7 +13,7 @@ def countingSort(data):
         L[index] = el
         counts[el] -= 1 
 
-	return L
+    return L
 
 print("Counting Loaded")
 """data = [4, 2, 2, 8, 3, 3, 1]
