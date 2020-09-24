@@ -1,3 +1,8 @@
+import java.util.*;
+import java.io.*;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class selectionsort {
 	public static void swap(int minimo,int i){
 		int temp=minimo;
@@ -22,15 +27,44 @@ public class selectionsort {
 		for(int i:A){
 			System.out.print(i+" ");
 		}
+	}public static void leer(int[] a,int tam) throws FileNotFoundException,IOException{
+        int numeroEntero,indice=0;
+        File f=new File("../GeneradorAleatorio/Array_"+tam+".txt");
+        try(Scanner entrada = new Scanner(f)){
+          while (entrada.hasNextInt() && indice<tam) { 
+                numeroEntero = entrada.nextInt();
+                a[indice]=numeroEntero;
+                indice++;
+            }
+        }catch (FileNotFoundException e) {
+        }
 	}
-	public static void main(String[] args) {
-		long time1, time2;
-		int [] A={15,2,6,9,8,5,14,3,0,56,4,1};
-		time1=System.currentTimeMillis();
-		selectionsort(A);
-		time2=System.currentTimeMillis();
-		print(A);
-		System.out.println("Tiempo "+ ( time2 - time1 ) +" ms");
-	}
+	
+	public static void main(String args[]) throws FileNotFoundException,IOException
+	{
+		File file=new File("TiemposJava/Selection_Sort.txt");
+        long time1, time2;
+        FileWriter fw = new FileWriter(file);
+		BufferedWriter bw = new BufferedWriter(fw);
+		for(int i=10000;i<=100000;i=i+10000)
+        {
+          int[] a=new int[i];
+          // System.out.println(" indice"+ ( id ));
+          leer(a,i);
+          selectionsort select = new selectionsort();
+          time1=System.currentTimeMillis();
+          // time1=System.currentTimeMillis();
+          select.selectionsort(a);
+          time2=System.currentTimeMillis();
+          long tiempo=time2-time1;
+          // time2=System.currentTimeMillis();
 
+          System.out.println("Tiempo "+ ( tiempo ) +" s");
+          String s=String.valueOf(tiempo);
+          
+            
+            bw.write(s+'\n');
+		}
+		bw.close();
+	} 
 }
