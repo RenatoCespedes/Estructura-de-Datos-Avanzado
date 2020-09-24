@@ -1,8 +1,11 @@
-// C++ program for implementation of Heap Sort
-#include <iostream>
 #include <bits/stdc++.h>
+#include "../GeneradorAleatorio/generator.h"
 using namespace std;
-void max_heap(long long arr[], long long n, int i)
+void crear(int *&A,int n)
+{
+	A=new int[n];
+}
+void max_heap(int arr[],int n, int i)
 {
 	int mayor = i;
 	int l = 2*i + 1;
@@ -17,7 +20,7 @@ void max_heap(long long arr[], long long n, int i)
 		max_heap(arr, n, mayor);
 	}
 }
-void heapSort(long long arr[], long long n)
+void heapSort(int arr[],int n)
 {
 	for (int i = n / 2 - 1; i >= 0; i--)
 		max_heap(arr, n, i);
@@ -27,7 +30,7 @@ void heapSort(long long arr[], long long n)
 		max_heap(arr, i, 0);
 	}
 }
-void printArray(long long arr[], long long n)
+void printArray(int arr[], int n)
 {
 	for (int i=0; i<n; ++i)
 		cout << arr[i] << " ";
@@ -35,26 +38,22 @@ void printArray(long long arr[], long long n)
 }
 int main()
 {
-    ofstream archivo("time.txt");
-
-	long long arr[100000];
-	srand(time(NULL));
-	long long  num;
-	float t0;
+    int n=10000;
+	double t0;
 	double time1;
-	for(long long i=0;i<100000;i++)
-    {
-        num=1+rand()%(10000-1);
-        arr[i]=num;
-    }
-	long long n = sizeof(arr)/sizeof(arr[0]);
-    cout << "lista desordenada"<<endl;
-    t0=clock();
-	heapSort(arr, n);
-	t0=clock()-t0;
-	time1= ((double)t0)/CLOCKS_PER_SEC;
-    printf (" m_Sec :%d (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
-    archivo<<t<<endl;
-	/*cout << "lista construida y ordenada: " <<endl;
-	printArray(arr, n);*/
+	int k=0;
+	ofstream fs("Tiempos/time_Heap.txt");
+	srand(time(NULL));
+	for(int i=n;i<=600000;i=i+60000){
+		int *A;
+		crear(A,i);
+		read(A,i,k);
+		t0=clock();
+		heapSort(A,i);
+		t0=clock()-t0;
+		time1=((double)t0)/CLOCKS_PER_SEC;
+		k++;
+		fs<<time1<<endl;
+	}
+
 }
