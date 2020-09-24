@@ -1,5 +1,9 @@
-
-public class HeapSort 
+import java.util.*;
+import java.io.*;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+public class heapsort
 { 
 	public void sort(int arr[]) 
 	{ 
@@ -39,15 +43,45 @@ public class HeapSort
 			System.out.print(arr[i]+" "); 
 		System.out.println(); 
 	} 
-	public static void main(String args[]) 
-	{ 
-		int arr[] = {51,13,2,45,9,89,65,12,13}; 
-		int n = arr.length; 
 
-		HeapSort ob = new HeapSort(); 
-		ob.sort(arr); 
+	public static void leer(int[] a,int tam) throws FileNotFoundException,IOException{
+        int numeroEntero,indice=0;
+        File f=new File("../GeneradorAleatorio/Array_"+tam+".txt");
+        try(Scanner entrada = new Scanner(f)){
+          while (entrada.hasNextInt() && indice<tam) { 
+                numeroEntero = entrada.nextInt();
+                a[indice]=numeroEntero;
+                indice++;
+            }
+        }catch (FileNotFoundException e) {
+        }
+	}
+	
+	public static void main(String args[]) throws FileNotFoundException,IOException
+	{
+		File file=new File("TiemposJava/heapsort.txt");
+        long time1, time2;
+        FileWriter fw = new FileWriter(file);
+		BufferedWriter bw = new BufferedWriter(fw);
+		for(int i=10000;i<=100000;i=i+10000)
+        {
+          int[] a=new int[i];
+          // System.out.println(" indice"+ ( id ));
+          leer(a,i);
+          heapsort heap = new heapsort();
+          time1=System.currentTimeMillis();
+          // time1=System.currentTimeMillis();
+          heap.sort(a);
+          time2=System.currentTimeMillis();
+          long tiempo=time2-time1;
+          // time2=System.currentTimeMillis();
 
-		System.out.println("Lista ordenada :"); 
-		printArray(arr); 
+          System.out.println("Tiempo "+ ( tiempo ) +" s");
+          String s=String.valueOf(tiempo);
+          
+            
+            bw.write(s+'\n');
+		}
+		bw.close();
 	} 
 } 
