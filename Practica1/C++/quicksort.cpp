@@ -46,7 +46,6 @@ int divrandom(int arr[], int low, int high)
     int random = low + rand() % (high - low);
 
     swap(arr[random], arr[high]);
-<<<<<<< HEAD
 
     return dividir(arr, low, high);
 }
@@ -56,17 +55,6 @@ void quickSort(int arr[], int inicio, int fin)
     if (inicio < fin) {
 
 
-=======
-
-    return dividir(arr, low, high);
-}
-
-void quickSort(int arr[], int inicio, int fin)
-{
-    if (inicio < fin) {
-
-
->>>>>>> dc234825ab5792133f249bc071a2ac3398cbe002
         int pi = divrandom(arr, inicio, fin);
 
         quickSort(arr, inicio, pi - 1);
@@ -82,20 +70,12 @@ int main(int argc, char const *argv[])
 	int k=0;
 	ofstream fs("Tiempos/time_Quick.txt");
 	srand(time(NULL));
-<<<<<<< HEAD
 	for(int i=n;i<=100000;i=i+10000){
-=======
-	for(int i=n;i<=600000;i=i+60000){
->>>>>>> dc234825ab5792133f249bc071a2ac3398cbe002
 		int *A;
 		crear(A,i);
 		read(A,i,k);
 		t0=clock();
-<<<<<<< HEAD
 		quickSort(A,0,i-1);
-=======
-		quickSort(A,0,i);
->>>>>>> dc234825ab5792133f249bc071a2ac3398cbe002
 		t0=clock()-t0;
 		time1= ((double)t0)/CLOCKS_PER_SEC;
 		k++;
