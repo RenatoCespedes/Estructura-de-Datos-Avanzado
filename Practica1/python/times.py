@@ -60,7 +60,7 @@ for i in range(10000,100001,10000):
     a = arr
     file = open("python_counting.txt",'a')
     start = time()
-    countingSort(a)
+    a=countingSort(a)
     elapsed = time() - start
     file.write("Length "+str(i)+'\n')
     file.write(str(elapsed)+'\n')
