@@ -1,7 +1,8 @@
+import java.util.*;
+import java.io.*;
 import java.util.Scanner;
-
-
-
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class mergesort{
 
@@ -66,19 +67,23 @@ public class mergesort{
         System.out.println(); 
     } 
 
-    static void generar(int arr[],int n){
-        int rand = 0;
-        for(int i=0;i<n;i++){
-            rand=(int)(Math.random()*n+1);
-            arr[i] = rand;
+    public static void leer(int[] a,int tam) throws FileNotFoundException,IOException{
+        int numeroEntero,indice=0;
+        File f=new File("../GeneradorAleatorio/Array_"+tam+".txt");
+        try(Scanner entrada = new Scanner(f)){
+          while (entrada.hasNextInt() && indice<tam) { 
+                numeroEntero = entrada.nextInt();
+                a[indice]=numeroEntero;
+                indice++;
+            }
+        }catch (FileNotFoundException e) {
         }
-
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException,IOException {
+        /*
         int n = 0;
-        
         Scanner entrada = new Scanner(System.in);
         n = entrada.nextInt();
         int[] arr = new int[n];
@@ -93,5 +98,33 @@ public class mergesort{
         t2 = System.currentTimeMillis();
         tt = t2-t1;
         System.out.println(tt);
+        */
+
+        File file=new File("TiemposJava/mergesort.txt");
+        
+        
+        long time1, time2;
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for(int i=10000;i<=100000;i=i+10000)
+        {
+          int[] a=new int[i];
+          // System.out.println(" indice"+ ( id ));
+          leer(a,i);
+          mergesort merge = new mergesort();
+          time1=System.currentTimeMillis();
+          // time1=System.currentTimeMillis();
+          merge.msort(a,0,a.length-1);
+          time2=System.currentTimeMillis();
+          long tiempo=time2-time1;
+          // time2=System.currentTimeMillis();
+
+          System.out.println("Tiempo "+ ( tiempo ) +" s");
+          String s=String.valueOf(tiempo);
+          
+            
+            bw.write(s+'\n');
+        }
+        bw.close();
     }
 }
