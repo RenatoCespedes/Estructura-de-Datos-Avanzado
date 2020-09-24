@@ -1,20 +1,71 @@
 import java.util.*;
+import java.io.*;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        // Your code here!
+    public static void main(String[] args) throws IOException,FileNotFoundException {
+        File file=new File("TiemposJava/CountingSortJ.txt");
         
-        int[] a={60, 40, 30, 20, 10, 40, 30, 60, 60, 20, 40, 30, 40};
-		int k=60;
-
-		System.out.println("Array Generado");
-		System.out.println(Arrays.toString(a));
-
-		countSort(a,k);
-		System.out.println("countSort");
-		System.out.println(Arrays.toString(a));
         
+        long time1, time2;
+        int id=0;
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for(int i=10000;i<600000;i=i+60000)
+        {
+          int[] a=new int[i];
+          // System.out.println(" indice"+ ( id ));
+          leer(a,i,id);
+          int k=max(a);
+          time1=System.currentTimeMillis();
+          // time1=System.currentTimeMillis();
+          countSort(a,k);
+          time2=System.currentTimeMillis();
+          long tiempo=time2-time1;
+          // time2=System.currentTimeMillis();
+
+          System.out.println("Tiempo "+ ( tiempo ) +" s");
+          String s=String.valueOf(tiempo);
+          id++;
+          
+            
+            bw.write(s+'\n');
+           
+          
+        }
+         bw.close();
+               
     }
+    public static void leer(int[] a,int tam,int id) throws FileNotFoundException,IOException{
+        String cadena;
+        int numeroEntero,indice=0;
+        File f=new File("../GeneradorAleatorio/GeneratedArray"+id+".txt");
+        try(Scanner entrada = new Scanner(f)){
+          while (entrada.hasNextInt() && indice<tam) { 
+                numeroEntero = entrada.nextInt();
+                a[indice]=numeroEntero;
+                indice++;
+            }
+        }catch (FileNotFoundException e) {
+        }
+    }
+
+    public static int max(int[] array) {
+    if (array.length == 0) {
+        // ...
+    }
+
+    int max = array[0];
+
+    for (int a : array) {
+        if (a > max)
+            max = a;
+    }
+
+    return max;
+}
     public static void countSort(int[] array,int tam)
 	{
 	    
