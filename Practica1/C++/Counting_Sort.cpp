@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+#include "../GeneradorAleatorio/generator.h"
 using namespace std;
 
 
@@ -62,21 +62,25 @@ void countingSort(int *A,int tam)
 
 int main()
 {
-	int n=100000;
-	float t0;
+	int n=10000;
+	double t0;
 	double time1;
-	ofstream fs("time_Counting.txt");
+	int k=0;
+	ofstream fs("Tiempos/time_Counting.txt");
 	srand(time(NULL));
-	for(int i=n;i<=1000000;i=i+100000){
+	for(int i=n;i<=600000;i=i+60000){
 		int *A;
 		crear(A,i);
-		llenar(A,i);
-		t0=clock();
+		read(A,i,k);
+//		llenar(A,i);
+//		imprimir(A,i);
 		cout<<"Counting"<<endl;
+		t0=clock();
 		countingSort(A,i);
 		t0=clock()-t0;
 		time1= ((double)t0)/CLOCKS_PER_SEC;
-		cout<<"time of execution: "<< time1<<endl;
+		cout<<"time1 of execution: "<< time1<<" with "<<i<<endl;
+		k++;
 		fs<<time1<<endl;
 	}
 
