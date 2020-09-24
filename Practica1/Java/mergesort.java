@@ -82,23 +82,7 @@ public class mergesort{
 
 
     public static void main(String[] args) throws FileNotFoundException,IOException {
-        /*
-        int n = 0;
-        Scanner entrada = new Scanner(System.in);
-        n = entrada.nextInt();
-        int[] arr = new int[n];
-        long t1,t2,tt;
-        generar(arr,n);
-        System.out.println("Arreglo Desordenado");
-        print(arr); 
-        System.out.println("Arreglo Desordenado");
-        mergesort merge = new mergesort();
-        t1 = System.currentTimeMillis();  
-        merge.msort(arr,0,n-1);
-        t2 = System.currentTimeMillis();
-        tt = t2-t1;
-        System.out.println(tt);
-        */
+        
 
         File file=new File("TiemposJava/mergesort.txt");
         
