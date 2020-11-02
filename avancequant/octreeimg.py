@@ -198,7 +198,7 @@ class OctreeQuantizer(object):
 
 
 
-img = cv2.imread('rainbow.png')
+img = cv2.imread('lena.jpg')
 # img = cv2.cvtColor(img,cv2.COLOR_RGB2BGR)
 # width = img.shape[0]
 # height= img.shape[1]
@@ -233,13 +233,13 @@ for i,color in enumerate(paleta):
 #     # pixelsPaleta[i%h][i/w][1] = (color.red,color.green,color.blue)
 #     # pixelsPaleta[i%h][i/w][2] = (color.red,color.green,color.blue)
 
-cv2.imwrite('nuevo.jpg',pixelsPaleta)
+img2 = cv2.imwrite('nuevo.jpg',pixelsPaleta)
 # print(pixelsPaleta.shape)
 cv2.imshow('examaple',pixelsPaleta)
 cv2.waitKey(10000)
 cv2.destroyAllWindows()
 
-imagenResul=np.zeros(shape=[256,256,3],dtype=np.uint8)
+imagenResul=np.zeros(shape=[h,w,3],dtype=np.uint8)
 
 for j in range(h):
     for i in range(w):
