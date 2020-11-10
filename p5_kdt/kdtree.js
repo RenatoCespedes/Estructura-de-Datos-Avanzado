@@ -45,7 +45,7 @@ function build_kdtree(points, depth=0){
 function getHeight(node)
 {
 	if(!node)
-		return 0
+		return 0;
 
 	return getHeight(node.left)+getHeight(node.right)+1;
 }
