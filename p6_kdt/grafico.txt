@@ -1,0 +1,15 @@
+Digraph G {
+nodo1[label="110,100"];
+nodo2[label="40,70"];
+nodo3[label="90,40"];
+nodo4[label="70,130"];
+nodo5[label="140,110"];
+nodo6[label="160,100"];
+nodo7[label="150,130"];
+nodo1->nodo2;
+nodo2->nodo3;
+nodo2->nodo4;
+nodo1->nodo5;
+nodo5->nodo6;
+nodo5->nodo7;
+}
